@@ -7,6 +7,8 @@ platform:
 image:
   - Visual Studio 2015
 
+clone_folder: c:\projects\opencv4nodejs
+
 init:
   - git config --global core.autocrlf true
 
@@ -34,6 +36,7 @@ install:
 
   - ps: Install-Product node $env:nodejs_version x64
   - npm install -g node-gyp
+  - cd c:\projects\opencv4nodejs
   - npm install
 
 

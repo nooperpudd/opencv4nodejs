@@ -14,17 +14,18 @@ init:
 environment:
   matrix:
     - nodejs_version: 9
-      opencv_version: 3.3.1
+      opencv_version: 3.2.0
     - nodejs_version: 8
-      opencv_version: 3.3.1
+      opencv_version: 3.2.0
     - nodejs_version: 6
-      opencv_version: 3.3.1
+      opencv_version: 3.2.0
 
 
 install:
+  - cmd: choco install OpenCV -y -version %OPENCV_VERSION%
   - "SET OPENCV_DIR=C:\\opencv"
   - "SET OPENCV_LIB_DIR=C:\\opencv\\lib"
-  - choco install OpenCV -y -version %OPENCV_VERSION%
+
   - ps: Install-Product node $env:nodejs_version x64
   - npm install -g node-gyp
   - npm install

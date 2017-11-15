@@ -21,9 +21,6 @@ environment:
       opencv_version: 3.3.1
 
 
-before_install:
-
-
 install:
   - "SET OPENCV_DIR=C:\\opencv"
   - "SET OPENCV_LIB_DIR=C:\\opencv\\lib"

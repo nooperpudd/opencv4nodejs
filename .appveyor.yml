@@ -14,17 +14,23 @@ init:
 environment:
   matrix:
     - nodejs_version: 9
+      PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7"
       opencv_version: 3.2.0
     - nodejs_version: 8
+      PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7"
       opencv_version: 3.2.0
     - nodejs_version: 6
       opencv_version: 3.2.0
-
+      PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7"
 
 install:
   - cmd: choco install OpenCV -y -version %OPENCV_VERSION%
-  - "SET OPENCV_DIR=C:\\opencv"
-  - "SET OPENCV_LIB_DIR=C:\\opencv\\lib"
+  - IF EXIST c:\tools\opencv* CD c:\tools\opencv*
+  - SET OPENCV_DIR=%CD%\build
+  - SET OPENCV_LIB_DIR=%CD%\build\lib
 
   - ps: Install-Product node $env:nodejs_version x64
   - npm install -g node-gyp

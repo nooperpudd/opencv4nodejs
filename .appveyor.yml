@@ -44,8 +44,9 @@ install:
 build: off
 
 test_script:
+  - ps: Install-Product node $env:nodejs_version x64
   - node --version
   - npm --version
-  - cmd: cd c:\projects\opencv4nodejs
+  - cmd: cd c:\projects\opencv4nodejs\test
   - cmd: npm install
   - cmd: npm test

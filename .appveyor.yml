@@ -43,11 +43,9 @@ install:
 
 build: off
 
-matrix:
-  fast_finish: true
-
 test_script:
   - node --version
   - npm --version
-  - cmd: cd test || npm install
-  - cmd: cd test || npm test
+  - cmd: cd c:\projects\opencv4nodejs
+  - cmd: npm install
+  - cmd: npm test
